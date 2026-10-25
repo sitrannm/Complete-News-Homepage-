@@ -1,0 +1,404 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="A responsive news homepage featuring the latest technology news."
+  >
+
+  <title>News Homepage | Frontend Mentor</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Tailwind CSS v4 Browser CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Custom Tailwind Theme -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-orange: hsl(35, 77%, 62%);
+      --color-red: hsl(5, 85%, 63%);
+      --color-cream: hsl(36, 100%, 99%);
+      --color-mist: hsl(233, 8%, 79%);
+      --color-slate: hsl(236, 13%, 42%);
+      --color-ink: hsl(240, 100%, 5%);
+
+      --font-inter: "Inter", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-cream font-inter text-[15px] text-slate">
+
+  <!-- Page Container -->
+  <div class="mx-auto max-w-[1110px] px-4 py-7 sm:px-6 lg:py-16">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" aria-label="W. homepage">
+        <img
+          src="./assets/images/logo.svg"
+          alt="W."
+          class="w-12 lg:w-[65px]"
+        >
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:block" aria-label="Main navigation">
+        <ul class="flex items-center gap-10">
+          <li>
+            <a href="#home" class="transition-colors hover:text-red">Home</a>
+          </li>
+          <li>
+            <a href="#new" class="transition-colors hover:text-red">New</a>
+          </li>
+          <li>
+            <a href="#popular" class="transition-colors hover:text-red">Popular</a>
+          </li>
+          <li>
+            <a href="#trending" class="transition-colors hover:text-red">Trending</a>
+          </li>
+          <li>
+            <a href="#categories" class="transition-colors hover:text-red">Categories</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="open-menu"
+        type="button"
+        class="cursor-pointer lg:hidden"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <img
+          src="./assets/images/icon-menu.svg"
+          alt=""
+          width="40"
+          height="17"
+        >
+      </button>
+
+    </header>
+
+    <!-- Mobile Overlay -->
+    <div
+      id="overlay"
+      class="fixed inset-0 z-40 hidden bg-ink/50 lg:hidden"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Mobile Navigation -->
+    <nav
+      id="mobile-menu"
+      class="fixed top-0 right-0 z-50 hidden h-full w-[75%] max-w-[320px] bg-cream p-6 lg:hidden"
+      aria-label="Mobile navigation"
+      inert
+    >
+
+      <button
+        id="close-menu"
+        type="button"
+        class="ml-auto block cursor-pointer"
+        aria-label="Close navigation menu"
+      >
+        <img
+          src="./assets/images/icon-menu-close.svg"
+          alt=""
+          width="32"
+          height="32"
+        >
+      </button>
+
+      <ul class="mt-20 flex flex-col gap-6 text-lg text-ink">
+        <li><a class="hover:text-red" href="#home">Home</a></li>
+        <li><a class="hover:text-red" href="#new">New</a></li>
+        <li><a class="hover:text-red" href="#popular">Popular</a></li>
+        <li><a class="hover:text-red" href="#trending">Trending</a></li>
+        <li><a class="hover:text-red" href="#categories">Categories</a></li>
+      </ul>
+
+    </nav>
+
+    <!-- Main Content -->
+    <main id="home" class="mt-8 grid gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1fr)_350px] lg:gap-x-8 lg:gap-y-16">
+
+      <!-- Featured News -->
+      <article>
+
+        <!-- Responsive Hero Image -->
+        <picture>
+          <source
+            media="(min-width: 1024px)"
+            srcset="./assets/images/image-web-3-desktop.jpg"
+          >
+
+          <img
+            src="./assets/images/image-web-3-mobile.jpg"
+            alt="Colorful geometric shapes arranged on a 3D game board"
+            class="block w-full"
+          >
+        </picture>
+
+        <!-- Featured Article Content -->
+        <div class="mt-6 grid gap-5 sm:gap-7 lg:mt-7 lg:grid-cols-2 lg:gap-8">
+
+          <!-- Headline -->
+          <h1 class="text-[40px] leading-[1] font-extrabold text-ink sm:text-5xl lg:text-[56px]">
+            The Bright Future of Web 3.0?
+          </h1>
+
+          <!-- Description and Button -->
+          <div class="flex flex-col items-start gap-6 lg:justify-between">
+
+            <p class="leading-6">
+              We dive into the next evolution of the web that claims to put
+              the power of the platforms back into the hands of the people.
+              But is it really fulfilling its promise?
+            </p>
+
+            <a
+              href="#popular"
+              class="inline-block bg-red px-8 py-4 text-xs font-extrabold tracking-[0.3em] text-ink uppercase transition-colors hover:bg-ink hover:text-cream"
+            >
+              Read More
+            </a>
+
+          </div>
+        </div>
+
+      </article>
+
+      <!-- New Articles Sidebar -->
+      <aside
+        id="new"
+        class="bg-ink p-6 sm:p-8"
+        aria-labelledby="new-title"
+      >
+
+        <h2
+          id="new-title"
+          class="text-[32px] leading-none font-bold text-orange sm:text-[40px]"
+        >
+          New
+        </h2>
+
+        <div class="mt-8 divide-y divide-slate">
+
+          <!-- Article 1 -->
+          <article class="pb-7">
+            <h3 class="text-xl font-bold text-cream transition-colors hover:text-orange">
+              <a href="#categories">Hydrogen VS Electric Cars</a>
+            </h3>
+
+            <p class="mt-2 leading-6 text-mist">
+              Will hydrogen-fueled cars ever catch up to EVs?
+            </p>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="py-7">
+            <h3 class="text-xl font-bold text-cream transition-colors hover:text-orange">
+              <a href="#categories">The Downsides of AI Artistry</a>
+            </h3>
+
+            <p class="mt-2 leading-6 text-mist">
+              What are the possible adverse effects of on-demand AI image generation?
+            </p>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="pt-7">
+            <h3 class="text-xl font-bold text-cream transition-colors hover:text-orange">
+              <a href="#categories">Is VC Funding Drying Up?</a>
+            </h3>
+
+            <p class="mt-2 leading-6 text-mist">
+              Private funding by VC firms is down 50% YOY.
+              We take a look at what that means.
+            </p>
+          </article>
+
+        </div>
+
+      </aside>
+
+      <!-- Popular and Trending Articles -->
+      <section
+        id="popular"
+        class="grid gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3"
+        aria-label="Popular and trending articles"
+      >
+
+        <!-- Article 1 -->
+        <article class="flex gap-6">
+
+          <img
+            src="./assets/images/image-retro-pcs.jpg"
+            alt="Retro desktop computers"
+            class="h-32 w-[100px] shrink-0 object-cover"
+            loading="lazy"
+          >
+
+          <div>
+            <p class="text-[32px] leading-none font-bold text-mist">01</p>
+
+            <h3 class="mt-3 text-lg font-extrabold text-ink transition-colors hover:text-red">
+              <a href="#categories">Reviving Retro PCs</a>
+            </h3>
+
+            <p class="mt-2 leading-6">
+              What happens when old PCs are given modern upgrades?
+            </p>
+          </div>
+
+        </article>
+
+        <!-- Article 2 -->
+        <article id="trending" class="flex gap-6">
+
+          <img
+            src="./assets/images/image-top-laptops.jpg"
+            alt="Laptop computer"
+            class="h-32 w-[100px] shrink-0 object-cover"
+            loading="lazy"
+          >
+
+          <div>
+            <p class="text-[32px] leading-none font-bold text-mist">02</p>
+
+            <h3 class="mt-3 text-lg font-extrabold text-ink transition-colors hover:text-red">
+              <a href="#categories">Top 10 Laptops of 2022</a>
+            </h3>
+
+            <p class="mt-2 leading-6">
+              Our best picks for various needs and budgets.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- Article 3 -->
+        <article class="flex gap-6">
+
+          <img
+            src="./assets/images/image-gaming-growth.jpg"
+            alt="Gaming controller"
+            class="h-32 w-[100px] shrink-0 object-cover"
+            loading="lazy"
+          >
+
+          <div>
+            <p class="text-[32px] leading-none font-bold text-mist">03</p>
+
+            <h3 class="mt-3 text-lg font-extrabold text-ink transition-colors hover:text-red">
+              <a href="#categories">The Growth of Gaming</a>
+            </h3>
+
+            <p class="mt-2 leading-6">
+              How the pandemic has sparked fresh opportunities.
+            </p>
+          </div>
+
+        </article>
+
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t border-mist pt-6 text-center text-xs leading-6">
+
+      <p>
+        Challenge by
+        <a
+          class="text-red underline hover:text-ink"
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Frontend Mentor
+        </a>.
+      </p>
+
+      <p>
+        Coded by
+        <a
+          class="text-red underline hover:text-ink"
+          href="https://github.com/sitrannm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sitra
+        </a>.
+      </p>
+
+    </footer>
+
+  </div>
+
+  <!-- Mobile Menu JavaScript -->
+  <script>
+    const menu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("overlay");
+    const openBtn = document.getElementById("open-menu");
+    const closeBtn = document.getElementById("close-menu");
+
+    function setMenu(isOpen) {
+      menu.classList.toggle("hidden", !isOpen);
+      overlay.classList.toggle("hidden", !isOpen);
+
+      menu.inert = !isOpen;
+
+      openBtn.setAttribute("aria-expanded", String(isOpen));
+
+      document.body.classList.toggle("overflow-hidden", isOpen);
+
+      if (isOpen) {
+        closeBtn.focus();
+      } else {
+        openBtn.focus();
+      }
+    }
+
+    openBtn.addEventListener("click", () => setMenu(true));
+
+    closeBtn.addEventListener("click", () => setMenu(false));
+
+    overlay.addEventListener("click", () => setMenu(false));
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenu(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !menu.classList.contains("hidden")) {
+        setMenu(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024 && !menu.classList.contains("hidden")) {
+        setMenu(false);
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
